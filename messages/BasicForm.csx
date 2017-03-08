@@ -3,6 +3,7 @@ using Microsoft.Bot.Builder.FormFlow;
 
 public enum CarOptions { Convertible = 1, SUV, EV };
 public enum ColorOptions { Red = 1, White, Blue };
+public enum PicOptions { Small = 1, Middle, Large };
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-form
 [Serializable]
@@ -10,6 +11,9 @@ public class BasicForm
 {
     [Prompt("Hi! What is your {&}?")]
     public string Name { get; set; }
+
+    [Prompt("Choose a {&} {||}")]
+    public PicOptions Size { get; set; }
 
     [Prompt("Please select your favorite car type {||}")]
     public CarOptions Car { get; set; }
